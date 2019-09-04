@@ -7,28 +7,48 @@ public class KnifeLauncher : MonoBehaviour {
 
 	[SerializeField] GameObject CurrKnife;
 
-	void Start() {
-		SpawnKnife();
+	bool isCanShoot;
+
+	private void Awake() {
+		EventManager.OnTargetHit += OnTargetHit; 
 	}
 
-	void Update() {
+	void Start() {
+		SpawnKnife(true);
+	}
 
+	void OnDestroy() {
+		EventManager.OnTargetHit -= OnTargetHit;
 	}
 
 	void OnMouseDown() {
 		ShootKnife();
-		SpawnKnife();
 	}
 
 	void ShootKnife() {
-		if(CurrKnife != null) {
+		if(isCanShoot && CurrKnife != null) {
 			CurrKnife.GetComponent<Knife>().Shoot();
 			CurrKnife = null;
 		}
 	}
 
-	void SpawnKnife() {
-		if(CurrKnife == null)
-			CurrKnife = Instantiate(KnifePrefab);
+	void OnTargetHit(EventData ed) {
+		SpawnKnife(false);
+	}
+
+	void SpawnKnife(bool isForce) {
+		if(CurrKnife == null) {
+			if (isForce) {
+				CurrKnife = Instantiate(KnifePrefab, transform.position, Quaternion.identity);
+				isCanShoot = true;
+			}
+			else {
+				CurrKnife = Instantiate(KnifePrefab, transform.position + new Vector3(0, -1.5f), Quaternion.identity);
+				LeanTween.moveY(CurrKnife, transform.position.y, 0.1f)
+					.setOnComplete(() => {
+						isCanShoot = true;
+					});
+			}
+		}
 	}
 }

@@ -9,7 +9,7 @@ public class AttackBoxKnifeHit : MonoBehaviour {
 		if (collision.tag == "KnifeHitBox") {
 			knife.Stop();
 			knife.FallOnKnifeHit();
-			GameManager.Instance.EventManager.CallOnTargetHit();
+			GameManager.Instance.EventManager.CallOnKnifeHit();
 		}
 	}
 }
