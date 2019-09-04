@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25fa9ed08b51934192bb011928c4619, type: 3}
+  m_Name: GameMangerData
+  m_EditorClassIdentifier: 
+  Knifes:
+  - {fileID: 11400000, guid: e3751ea8e388eb64f83e3b848d1c4735, type: 2}
+  - {fileID: 11400000, guid: 7aa4a7299f2a00e499b48052b9291096, type: 2}
+  - {fileID: 11400000, guid: 298d46085d010d446a86941b2ccf5117, type: 2}
+  - {fileID: 11400000, guid: ab795e320f2df804083e8b376f2f5ea6, type: 2}
+  UsedPlayerKnifeSprite: {fileID: 21300000, guid: 9495a8789d4d36547bce5d437cd81611,
+    type: 3}
