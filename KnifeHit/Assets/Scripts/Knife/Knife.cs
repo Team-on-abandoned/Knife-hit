@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Knife : MonoBehaviour {
-	const float speed = 700.0f;
+	const float speed = 1200.0f;
 
 	public SpriteRenderer sr;
 	public new Rigidbody2D rigidbody;
