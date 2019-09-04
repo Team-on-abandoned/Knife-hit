@@ -6,6 +6,8 @@ public class GameManager : Singleton<GameManager> {
 	//guarantee this will be always a singleton only
 	protected GameManager() { }
 
+	public EventManager EventManager;
+
 	public GameMangerDataSO Data {
 		get {
 			if(data == null) {
@@ -18,5 +20,7 @@ public class GameManager : Singleton<GameManager> {
 
 	void Awake() {
 		Input.multiTouchEnabled = false;
+
+		EventManager = new EventManager();
 	}
 }
