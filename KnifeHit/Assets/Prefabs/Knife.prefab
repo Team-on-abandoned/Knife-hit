@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5409994308250803417}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3977754147912190828
 BoxCollider2D:
@@ -185,8 +185,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
-  - {fileID: 7568063852621241875}
   - {fileID: 4172577567623678204}
+  - {fileID: 7568063852621241875}
   - {fileID: 7570343375874426885}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -253,6 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 5409994308250803430}
   rigidbody: {fileID: 5354334824718378983}
+  AttackBoxTarget: {fileID: 8899749645883127175}
+  AttackBoxKnife: {fileID: 2262375352534284585}
+  HitBox: {fileID: 3065817571235666317}
   IsUsePlayerSprite: 1
 --- !u!50 &5354334824718378983
 Rigidbody2D:
@@ -305,7 +308,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5409994308250803417}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1643289922464326434
 BoxCollider2D:

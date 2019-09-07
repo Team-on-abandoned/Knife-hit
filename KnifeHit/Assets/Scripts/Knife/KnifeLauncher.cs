@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KnifeLauncher : MonoBehaviour {
+	public GameObject BottomBackground;
 	public GameObject KnifePrefab;
 
-	[SerializeField] GameObject CurrKnife;
+	GameObject CurrKnife;
 
 	bool isCanShoot;
 
@@ -44,9 +45,11 @@ public class KnifeLauncher : MonoBehaviour {
 			}
 			else {
 				CurrKnife = Instantiate(KnifePrefab, transform.position + new Vector3(0, -1.5f), Quaternion.identity);
+				BottomBackground.SetActive(true);
 				LeanTween.moveY(CurrKnife, transform.position.y, 0.1f)
 					.setOnComplete(() => {
 						isCanShoot = true;
+						BottomBackground.SetActive(false);
 					});
 			}
 		}
