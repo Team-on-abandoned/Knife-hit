@@ -14,28 +14,35 @@ public class KnifeLauncher : MonoBehaviour {
 	bool isCanShoot;
 
 	private void Awake() {
+		maxShoots = leftShoots = 0;
+		isCanShoot = false;
+
+		EventManager.OnGameStart += OnGameStart;
+		EventManager.OnKnifeHit += OnKnifeHit;
 		EventManager.OnTargetHit += OnTargetHit;
-
-		//TODO: set maxShoots on level start
-		//TODO: set target info
-		//Call CallOnGameStart
-		maxShoots = leftShoots = 5;
-
-		EventData eventData = new EventData("eventData");
-		eventData["maxShoots"] = maxShoots;
-		GameManager.Instance.EventManager.CallOnGameStart(eventData);
-	}
-
-	void Start() {
-		SpawnKnife(true);
 	}
 
 	void OnDestroy() {
+		EventManager.OnGameStart -= OnGameStart;
+		EventManager.OnKnifeHit -= OnKnifeHit;
 		EventManager.OnTargetHit -= OnTargetHit;
 	}
 
 	void OnMouseDown() {
 		ShootKnife();
+	}
+
+	void OnGameStart(EventData ed) {
+		maxShoots = leftShoots = (int)(ed?["maxShoots"] ?? 1);
+		SpawnKnife(true);
+	}
+
+	void OnKnifeHit(EventData ed) {
+		isCanShoot = false;
+	}
+
+	void OnTargetHit(EventData ed) {
+		SpawnKnife(false);
 	}
 
 	void ShootKnife() {
@@ -49,10 +56,6 @@ public class KnifeLauncher : MonoBehaviour {
 			CurrKnife = null;
 			GameManager.Instance.EventManager.CallOnKnifeShoot();
 		}
-	}
-
-	void OnTargetHit(EventData ed) {
-		SpawnKnife(false);
 	}
 
 	void SpawnKnife(bool isForce) {

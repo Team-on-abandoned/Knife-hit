@@ -14,4 +14,7 @@ public class EventManager {
 
 	public static event EventController.MethodContainer OnKnifeHit;
 	public void CallOnKnifeHit(EventData ob = null) => OnKnifeHit?.Invoke(ob);
+
+	public static event EventController.MethodContainer OnAllKnifesShoot;
+	public void CallOnAllKnifesShoot(EventData ob = null) => OnAllKnifesShoot?.Invoke(ob);
 }

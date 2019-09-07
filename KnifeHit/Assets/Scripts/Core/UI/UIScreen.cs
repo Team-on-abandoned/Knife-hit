@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UIScreen : MonoBehaviour {
 	[SerializeField] protected CanvasGroup canvasGroup;
 
-	public void Show(bool isForce) {
+	public void Show(bool isForce, Action setOnComplete = null) {
 		LeanTween.cancel(gameObject, false);
 
 		if (!isForce) {
@@ -15,17 +16,17 @@ public class UIScreen : MonoBehaviour {
 			})
 			.setOnComplete(() => {
 				canvasGroup.blocksRaycasts = canvasGroup.interactable = true;
+				setOnComplete?.Invoke();
 			});
 		}
 		else {
 			canvasGroup.alpha = 1.0f;
 			canvasGroup.blocksRaycasts = canvasGroup.interactable = true;
+			setOnComplete?.Invoke();
 		}
-
-		
 	}
 
-	public void Hide(bool isForce) {
+	public void Hide(bool isForce, Action setOnComplete = null) {
 		LeanTween.cancel(gameObject, false);
 
 		if (!isForce) {
@@ -35,11 +36,13 @@ public class UIScreen : MonoBehaviour {
 			})
 			.setOnComplete(() => {
 				canvasGroup.blocksRaycasts = canvasGroup.interactable = false;
+				setOnComplete?.Invoke();
 			});
 		}
 		else {
 			canvasGroup.alpha = 0.0f;
 			canvasGroup.blocksRaycasts = canvasGroup.interactable = false;
+			setOnComplete?.Invoke();
 		}
 	}
 }

@@ -10,14 +10,10 @@ public class AttackBoxTargetHit : MonoBehaviour {
 			knife.Stop();
 			knife.transform.parent = collision.transform;
 
-			if (!knife.IsLastKnife) {
-				GameManager.Instance.EventManager.CallOnTargetHit();
-			}
-			else {
-				EventData eventData = new EventData("CallOnTargetHit");
-				eventData["knife"] = knife;
-				GameManager.Instance.EventManager.CallOnTargetHit(eventData);
-			}
+			GameManager.Instance.EventManager.CallOnTargetHit();
+
+			if (knife.IsLastKnife)
+				GameManager.Instance.EventManager.CallOnAllKnifesShoot();
 		}
 	}
 }

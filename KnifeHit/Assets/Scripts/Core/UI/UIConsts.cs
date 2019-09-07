@@ -2,5 +2,5 @@
 using System.Collections;
 
 public static class UIConsts {
-	public const float menuAnimationsTime = 1.0f;
+	public const float menuAnimationsTime = 0.3f;
 }
