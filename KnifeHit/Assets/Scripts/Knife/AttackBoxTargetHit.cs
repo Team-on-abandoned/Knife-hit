@@ -9,7 +9,15 @@ public class AttackBoxTargetHit : MonoBehaviour {
 		if (collision.gameObject.tag == "Target") {
 			knife.Stop();
 			knife.transform.parent = collision.transform;
-			GameManager.Instance.EventManager.CallOnTargetHit();
+
+			if (!knife.IsLastKnife) {
+				GameManager.Instance.EventManager.CallOnTargetHit();
+			}
+			else {
+				EventData eventData = new EventData("CallOnTargetHit");
+				eventData["knife"] = knife;
+				GameManager.Instance.EventManager.CallOnTargetHit(eventData);
+			}
 		}
 	}
 }

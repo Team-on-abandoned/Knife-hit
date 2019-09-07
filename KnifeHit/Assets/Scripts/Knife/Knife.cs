@@ -14,10 +14,13 @@ public class Knife : MonoBehaviour {
 
 	public bool IsUsePlayerSprite;
 
+	public bool IsLastKnife;
+
 	bool isFall;
 
 	private void Awake() {
 		isFall = false;
+		IsLastKnife = false;
 
 		if (IsUsePlayerSprite)
 			sr.sprite = GameManager.Instance.Data.UsedPlayerKnifeSprite;

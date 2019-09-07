@@ -6,12 +6,24 @@ public class KnifeLauncher : MonoBehaviour {
 	public GameObject BottomBackground;
 	public GameObject KnifePrefab;
 
+	public int maxShoots;
+	int leftShoots;
+
 	GameObject CurrKnife;
 
 	bool isCanShoot;
 
 	private void Awake() {
-		EventManager.OnTargetHit += OnTargetHit; 
+		EventManager.OnTargetHit += OnTargetHit;
+
+		//TODO: set maxShoots on level start
+		//TODO: set target info
+		//Call CallOnGameStart
+		maxShoots = leftShoots = 5;
+
+		EventData eventData = new EventData("eventData");
+		eventData["maxShoots"] = maxShoots;
+		GameManager.Instance.EventManager.CallOnGameStart(eventData);
 	}
 
 	void Start() {
@@ -27,9 +39,15 @@ public class KnifeLauncher : MonoBehaviour {
 	}
 
 	void ShootKnife() {
-		if(isCanShoot && CurrKnife != null) {
-			CurrKnife.GetComponent<Knife>().Shoot();
+		if(isCanShoot && CurrKnife != null && leftShoots > 0) {
+			Knife knife = CurrKnife.GetComponent<Knife>();
+			knife.Shoot();
+
+			if(--leftShoots == 0) 
+				knife.IsLastKnife = true;
+
 			CurrKnife = null;
+			GameManager.Instance.EventManager.CallOnKnifeShoot();
 		}
 	}
 
@@ -38,7 +56,7 @@ public class KnifeLauncher : MonoBehaviour {
 	}
 
 	void SpawnKnife(bool isForce) {
-		if(CurrKnife == null) {
+		if(CurrKnife == null && leftShoots > 0) {
 			if (isForce) {
 				CurrKnife = Instantiate(KnifePrefab, transform.position, Quaternion.identity);
 				isCanShoot = true;
