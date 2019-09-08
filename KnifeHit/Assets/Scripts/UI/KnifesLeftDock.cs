@@ -10,17 +10,17 @@ public class KnifesLeftDock : MonoBehaviour {
 	int currIcon;
 
 	private void Awake() {
-		EventManager.OnGameStart += OnGameStart;
+		EventManager.OnNewTarget += OnNewTarget;
 		EventManager.OnKnifeShoot += OnKnifeShoot;
 	}
 
 	void OnDestroy() {
-		EventManager.OnGameStart -= OnGameStart;
+		EventManager.OnNewTarget -= OnNewTarget;
 		EventManager.OnKnifeShoot -= OnKnifeShoot;
 	}
 
-	void OnGameStart(EventData eventData) {
-		Init((int)(eventData?["maxShoots"] ?? 0));
+	void OnNewTarget(EventData eventData) {
+		Init((int)(eventData?["maxShoots"] ?? 1));
 	}
 
 	void OnKnifeShoot(EventData eventData) {

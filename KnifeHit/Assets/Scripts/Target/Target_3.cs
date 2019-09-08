@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Target_1 : BaseTarget {
+public class Target_3 : BaseTarget {
 	void Update() {
 		transform.transform.Rotate(new Vector3(0, 0, 90 * Time.deltaTime));
 	}

@@ -6,6 +6,9 @@ public class EventManager {
 	public static event EventController.MethodContainer OnGameStart;
 	public void CallOnGameStart(EventData ob = null) => OnGameStart?.Invoke(ob);
 
+	public static event EventController.MethodContainer OnNewTarget;
+	public void CallOnNewTarget(EventData ob = null) => OnNewTarget?.Invoke(ob);
+
 	public static event EventController.MethodContainer OnKnifeShoot;
 	public void CallOnKnifeShoot(EventData ob = null) => OnKnifeShoot?.Invoke(ob);
 

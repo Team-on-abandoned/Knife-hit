@@ -23,15 +23,11 @@ public class UIController : MonoBehaviour {
 	}
 
 	public void ToInGameMenu() {
-		//TODO: set target info
-		//Call CallOnGameStart
-		EventData eventData = new EventData("eventData");
-		eventData["maxShoots"] = 6;
-		GameManager.Instance.EventManager.CallOnGameStart(eventData);
-
 		currScreen?.Hide(false);
 		InGameMenu.Show(false);
 		currScreen = InGameMenu;
+
+		GameManager.Instance.EventManager.CallOnGameStart();
 	}
 
 	public void ToKnifeSelectMenu() {

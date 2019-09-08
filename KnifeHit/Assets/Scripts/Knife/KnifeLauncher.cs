@@ -17,13 +17,13 @@ public class KnifeLauncher : MonoBehaviour {
 		maxShoots = leftShoots = 0;
 		isCanShoot = false;
 
-		EventManager.OnGameStart += OnGameStart;
+		EventManager.OnNewTarget += OnNewTarget;
 		EventManager.OnKnifeHit += OnKnifeHit;
 		EventManager.OnTargetHit += OnTargetHit;
 	}
 
 	void OnDestroy() {
-		EventManager.OnGameStart -= OnGameStart;
+		EventManager.OnNewTarget -= OnNewTarget;
 		EventManager.OnKnifeHit -= OnKnifeHit;
 		EventManager.OnTargetHit -= OnTargetHit;
 	}
@@ -32,7 +32,7 @@ public class KnifeLauncher : MonoBehaviour {
 		ShootKnife();
 	}
 
-	void OnGameStart(EventData ed) {
+	void OnNewTarget(EventData ed) {
 		maxShoots = leftShoots = (int)(ed?["maxShoots"] ?? 1);
 		SpawnKnife(true);
 	}
