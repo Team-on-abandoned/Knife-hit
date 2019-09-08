@@ -14,6 +14,16 @@ public class UIController : MonoBehaviour {
 	private void Awake() {
 		MainMenu.Show(true);
 		currScreen = MainMenu;
+
+		EventManager.OnKnifeHit += OnKnifeHit;
+	}
+
+	private void OnDestroy() {
+		EventManager.OnKnifeHit -= OnKnifeHit;
+	}
+
+	private void OnKnifeHit(EventData eventData) {
+		ToLoseMenu();
 	}
 
 	public void ToMainMenu() {
@@ -34,5 +44,11 @@ public class UIController : MonoBehaviour {
 		currScreen?.Hide(false);
 		KnifeSelectMenu.Show(false);
 		currScreen = KnifeSelectMenu;
+	}
+
+	public void ToLoseMenu() {
+		currScreen?.Hide(false);
+		LoseMenu.Show(false);
+		currScreen = LoseMenu;
 	}
 }

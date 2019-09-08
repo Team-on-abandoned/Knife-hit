@@ -22,6 +22,8 @@ public class TargetController : MonoBehaviour {
 	}
 
 	void OnGameStart(EventData eventData) {
+		if(currTargetGameObject != null)
+			Destroy(currTargetGameObject.gameObject);
 		currTarget = 0;
 		SpawnTarget();
 	}
@@ -30,6 +32,7 @@ public class TargetController : MonoBehaviour {
 		++currTarget;
 		//Call cool destroy animation
 		Destroy(currTargetGameObject.gameObject);
+		currTargetGameObject = null;
 		//Call after animation
 		LeanTween.delayedCall(UIConsts.menuAnimationsTime, () => {
 			SpawnTarget();
@@ -37,7 +40,8 @@ public class TargetController : MonoBehaviour {
 	}
 
 	void OnKnifeHit(EventData eventData) {
-		Destroy(currTargetGameObject.gameObject, UIConsts.menuAnimationsTime * 2);
+		//Destroy(currTargetGameObject.gameObject, UIConsts.menuAnimationsTime * 2);
+		//currTargetGameObject = null;
 	}
 
 	void SpawnTarget() {
