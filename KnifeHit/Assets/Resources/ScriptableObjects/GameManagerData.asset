@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a25fa9ed08b51934192bb011928c4619, type: 3}
-  m_Name: GameMangerData
+  m_Name: GameManagerData
   m_EditorClassIdentifier: 
   Knifes:
   - {fileID: 11400000, guid: e3751ea8e388eb64f83e3b848d1c4735, type: 2}

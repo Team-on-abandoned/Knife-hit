@@ -8,15 +8,15 @@ public class GameManager : Singleton<GameManager> {
 
 	public EventManager EventManager;
 
-	public GameMangerDataSO Data {
+	public GameManagerDataSO Data {
 		get {
 			if(data == null) {
-				data = Resources.Load<GameMangerDataSO>("ScriptableObjects/GameMangerData");
+				data = Resources.Load<GameManagerDataSO>("ScriptableObjects/GameManagerData");
 			}
 			return data;
 		}
 	}
-	GameMangerDataSO data;
+	GameManagerDataSO data;
 
 	public int CurrScore {
 		get => _CurrScore;
