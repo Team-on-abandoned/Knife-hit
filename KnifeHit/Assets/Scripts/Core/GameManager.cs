@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Monetization;
 
 public class GameManager : Singleton<GameManager> {
 	//guarantee this will be always a singleton only
@@ -62,6 +63,15 @@ public class GameManager : Singleton<GameManager> {
 	int _MaxScore = -1;
 	int _MaxStage = -1;
 
+#if UNITY_ANDROID
+	string gameId = "3284618";
+#elif UNITY_IOS
+	string gameId = "3284619";
+#else
+	string gameId = "1234567";
+#endif
+	bool isTestMode = true;
+
 	void Awake() {
 		Input.multiTouchEnabled = false;
 
@@ -71,6 +81,10 @@ public class GameManager : Singleton<GameManager> {
 		EventManager.OnTargetHit += OnTargetHit;
 		EventManager.OnKnifeHit += OnKnifeHit;
 		EventManager.OnAllKnifesShoot += OnAllKnifesShoot;
+	}
+
+	void Start() {
+		Monetization.Initialize(gameId, isTestMode);
 	}
 
 	void OnDestroy() {
