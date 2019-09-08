@@ -6,7 +6,13 @@ using UnityEngine;
 public class UIScreen : MonoBehaviour {
 	[SerializeField] protected CanvasGroup canvasGroup;
 
+	void Awake() {
+		Hide(true);
+	}
+
 	public void Show(bool isForce, Action setOnComplete = null) {
+		if (!gameObject.activeSelf)
+			gameObject.SetActive(true);
 		LeanTween.cancel(gameObject, false);
 
 		if (!isForce) {
@@ -37,12 +43,14 @@ public class UIScreen : MonoBehaviour {
 			.setOnComplete(() => {
 				canvasGroup.blocksRaycasts = canvasGroup.interactable = false;
 				setOnComplete?.Invoke();
+				gameObject.SetActive(false);
 			});
 		}
 		else {
 			canvasGroup.alpha = 0.0f;
 			canvasGroup.blocksRaycasts = canvasGroup.interactable = false;
 			setOnComplete?.Invoke();
+			gameObject.SetActive(false);
 		}
 	}
 }

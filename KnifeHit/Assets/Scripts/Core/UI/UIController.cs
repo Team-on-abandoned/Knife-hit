@@ -12,10 +12,12 @@ public class UIController : MonoBehaviour {
 	UIScreen currScreen;
 
 	private void Awake() {
+		EventManager.OnKnifeHit += OnKnifeHit;
+	}
+
+	private void Start() {
 		MainMenu.Show(true);
 		currScreen = MainMenu;
-
-		EventManager.OnKnifeHit += OnKnifeHit;
 	}
 
 	private void OnDestroy() {
