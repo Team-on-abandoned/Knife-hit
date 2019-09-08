@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8791612334535132452}
   - component: {fileID: 8791612334535132455}
   - component: {fileID: 8791612334535132459}
+  - component: {fileID: 1752729680795740263}
+  - component: {fileID: 6897994124869860337}
   m_Layer: 0
   m_Name: Target_2
   m_TagString: Target
@@ -50,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f21cf2a76dc53e64db83606ed2db43ce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,3 +112,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NeededShoots: 6
+--- !u!114 &1752729680795740263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791612334535132458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837e2e68f33483f4f969002c6e6c0fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteRenderer: {fileID: 8791612334535132452}
+--- !u!114 &6897994124869860337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8791612334535132458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052f23ba9dd3ca241948d82c3f710c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
