@@ -9,6 +9,7 @@ public class AttackBoxKnifeHit : MonoBehaviour {
 		if (collision.tag == "KnifeHitBox") {
 			knife.Stop();
 			knife.FallOnKnifeHit();
+			Destroy(transform.parent.gameObject, 3.0f);
 			GameManager.Instance.EventManager.CallOnKnifeHit();
 		}
 	}
