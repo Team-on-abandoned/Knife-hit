@@ -40,8 +40,12 @@ public class TargetController : MonoBehaviour {
 	}
 
 	void OnKnifeHit(EventData eventData) {
-		//Destroy(currTargetGameObject.gameObject, UIConsts.menuAnimationsTime * 2);
-		//currTargetGameObject = null;
+		
+	}
+
+	public void DestroyTarget() {
+		Destroy(currTargetGameObject.gameObject);
+		currTargetGameObject = null;
 	}
 
 	void SpawnTarget() {
