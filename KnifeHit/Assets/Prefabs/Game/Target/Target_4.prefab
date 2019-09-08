@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6024686934270747039}
   - component: {fileID: 8759809557113275769}
   - component: {fileID: 5412525305806393758}
+  - component: {fileID: 3329260774848737149}
   m_Layer: 0
   m_Name: Target_4
   m_TagString: Target
@@ -138,3 +139,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.0001
+--- !u!114 &3329260774848737149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024686934270747036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ed9941c125fcd46a44c0c5f7b011ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticlePrefab: {fileID: 5737591785606816508, guid: 2db32fc54e749a34c8505a601bb76d42,
+    type: 3}
