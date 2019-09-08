@@ -20,4 +20,11 @@ public class EventManager {
 
 	public static event EventController.MethodContainer OnAllKnifesShoot;
 	public void CallOnAllKnifesShoot(EventData ob = null) => OnAllKnifesShoot?.Invoke(ob);
+
+
+	public static event EventController.MethodContainer OnScoreChanged;
+	public void CallOnScoreChanged(EventData ob = null) => OnScoreChanged?.Invoke(ob);
+
+	public static event EventController.MethodContainer OnStageChanged;
+	public void CallOnStageChanged(EventData ob = null) => OnStageChanged?.Invoke(ob);
 }
