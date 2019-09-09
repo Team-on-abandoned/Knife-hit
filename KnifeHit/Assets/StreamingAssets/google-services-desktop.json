@@ -1,0 +1,37 @@
+{
+  "client": [
+    {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "111927677880-era2lj6c2r7v39d1pmgd3r8jvkanhl1a.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWMZKbnqC03Ry-zeW6tgrXm1JkJxZWox4"
+        }
+      ], 
+      "client_info": {
+        "mobilesdk_app_id": "1:111927677880:ios:fc00900d37db003feeb54d", 
+        "android_client_info": {
+          "package_name": "com.Team.KnifeHit"
+        }
+      }
+    }
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "unity-knifehit.appspot.com", 
+    "project_id": "unity-knifehit", 
+    "firebase_url": "https://unity-knifehit.firebaseio.com", 
+    "project_number": "111927677880"
+  }
+}

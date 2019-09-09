@@ -160,7 +160,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.Team.KnifeHit
     Standalone: com.Company.ProductName
+    iPhone: com.Team.KnifeHit
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16

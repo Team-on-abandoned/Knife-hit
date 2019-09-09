@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>111927677880-era2lj6c2r7v39d1pmgd3r8jvkanhl1a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.111927677880-era2lj6c2r7v39d1pmgd3r8jvkanhl1a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCWMZKbnqC03Ry-zeW6tgrXm1JkJxZWox4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>111927677880</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Team.KnifeHit</string>
+	<key>PROJECT_ID</key>
+	<string>unity-knifehit</string>
+	<key>STORAGE_BUCKET</key>
+	<string>unity-knifehit.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:111927677880:ios:fc00900d37db003feeb54d</string>
+	<key>DATABASE_URL</key>
+	<string>https://unity-knifehit.firebaseio.com</string>
+</dict>
+</plist>
