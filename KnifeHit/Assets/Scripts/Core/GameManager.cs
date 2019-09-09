@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Monetization;
+using Firebase;
 
 public class GameManager : Singleton<GameManager> {
 	//guarantee this will be always a singleton only
@@ -72,6 +73,9 @@ public class GameManager : Singleton<GameManager> {
 #endif
 	bool isTestMode = true;
 
+	public FirebaseApp FirebaseApp;
+	public bool IsFirebaseEnabled => FirebaseApp != null;
+
 	void Awake() {
 		Input.multiTouchEnabled = false;
 
@@ -85,6 +89,16 @@ public class GameManager : Singleton<GameManager> {
 
 	void Start() {
 		Monetization.Initialize(gameId, isTestMode);
+
+		FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+			var dependencyStatus = task.Result;
+			if (dependencyStatus == DependencyStatus.Available) {
+				FirebaseApp = FirebaseApp.DefaultInstance;
+			}
+			else {
+				FirebaseApp = null;
+			}
+		});
 	}
 
 	void OnDestroy() {
