@@ -8,18 +8,17 @@ public class Banner : MonoBehaviour {
 	public string BannerId;
 	public BannerPosition BannerPosition;
 
-	void Start() {
-		StartCoroutine(ShowBannerWhenReady());
+	void Awake() {
+		EventManager.OnAdsNeeded += OnAdsNeeded;
 	}
 
-	IEnumerator ShowBannerWhenReady() {
-		while (!Advertisement.IsReady(BannerId))
-			yield return new WaitForSeconds(0.5f);
+	void OnDestroy() {
+		EventManager.OnAdsNeeded -= OnAdsNeeded;
+	}
 
+	void OnAdsNeeded(EventData eventData) {
 		Advertisement.Banner.Show(BannerId);
 		Advertisement.Banner.SetPosition(BannerPosition);
-
-		yield return null;
 
 		Destroy(gameObject);
 	}

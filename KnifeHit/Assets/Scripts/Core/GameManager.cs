@@ -10,6 +10,10 @@ public class GameManager : Singleton<GameManager> {
 
 	public EventManager EventManager;
 
+	public FirebaseApp FirebaseApp;
+	public bool IsFirebaseEnabled => FirebaseApp != null;
+	public bool IsAdActive;
+
 	public GameManagerDataSO Data {
 		get {
 			if(data == null) {
@@ -73,9 +77,6 @@ public class GameManager : Singleton<GameManager> {
 #endif
 	bool isTestMode = true;
 
-	public FirebaseApp FirebaseApp;
-	public bool IsFirebaseEnabled => FirebaseApp != null;
-
 	void Awake() {
 		Input.multiTouchEnabled = false;
 
@@ -88,12 +89,18 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	void Start() {
-		Monetization.Initialize(gameId, isTestMode);
-
 		FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
 			var dependencyStatus = task.Result;
 			if (dependencyStatus == DependencyStatus.Available) {
 				FirebaseApp = FirebaseApp.DefaultInstance;
+
+				Firebase.RemoteConfig.FirebaseRemoteConfig.FetchAsync().ContinueWith(fetchTask => {
+					Firebase.RemoteConfig.FirebaseRemoteConfig.ActivateFetched();
+					IsAdActive = Firebase.RemoteConfig.FirebaseRemoteConfig.GetValue("is_ad_active").BooleanValue;
+
+					if (IsAdActive)
+						InitAds();
+				});
 			}
 			else {
 				FirebaseApp = null;
@@ -126,5 +133,11 @@ public class GameManager : Singleton<GameManager> {
 
 	void OnAllKnifesShoot(EventData eventData) {
 		++CurrStage;
+	}
+
+	void InitAds() {
+		Monetization.Initialize(gameId, isTestMode);
+
+		GameManager.Instance.EventManager.CallOnAdsNeeded();
 	}
 }

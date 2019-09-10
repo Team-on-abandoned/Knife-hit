@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class EventManager {
+	public static event EventController.MethodContainer OnAdsNeeded;
+	public void CallOnAdsNeeded(EventData ob = null) => OnAdsNeeded?.Invoke(ob);
+
 	public static event EventController.MethodContainer OnGameStart;
 	public void CallOnGameStart(EventData ob = null) => OnGameStart?.Invoke(ob);
 
