@@ -89,6 +89,8 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	void Start() {
+		Monetization.Initialize(gameId, isTestMode);
+
 		FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
 			var dependencyStatus = task.Result;
 			if (dependencyStatus == DependencyStatus.Available) {
@@ -136,8 +138,6 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	void InitAds() {
-		Monetization.Initialize(gameId, isTestMode);
-
 		GameManager.Instance.EventManager.CallOnAdsNeeded();
 	}
 }
