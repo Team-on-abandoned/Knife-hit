@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7399895562512317657}
   - component: {fileID: 7399895562512317656}
   - component: {fileID: 7399895562512317659}
-  - component: {fileID: 7399895562512317655}
+  - component: {fileID: 3608414582167807962}
   - component: {fileID: 563458225420245766}
   - component: {fileID: 7268840418823192626}
   - component: {fileID: 5638864869702517079}
@@ -103,7 +103,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.703624
---- !u!114 &7399895562512317655
+--- !u!114 &3608414582167807962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7399895562512317654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5bd15c8587899541a3b6d82c9819696, type: 3}
+  m_Script: {fileID: 11500000, guid: e4d59a76e93b35349a99dca0ee93a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NeededShoots: 8
+  speedMax: 360
+  speedStep: 90
 --- !u!114 &563458225420245766
 MonoBehaviour:
   m_ObjectHideFlags: 0

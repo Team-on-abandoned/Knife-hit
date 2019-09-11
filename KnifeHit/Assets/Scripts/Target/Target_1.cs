@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Target_1 : BaseTarget {
+	public float speed = 90.0f;
+
 	void Update() {
-		transform.transform.Rotate(new Vector3(0, 0, 90 * Time.deltaTime));
+		transform.transform.Rotate(new Vector3(0, 0, speed * Time.deltaTime));
 	}
 }
